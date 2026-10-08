@@ -39,7 +39,7 @@ class NotificationResource extends JsonResource
             'created_at' => $notification->created_at->toIso8601String(),
             'time_ago' => $notification->created_at->diffForHumans(),
             'day' => Inbox::dayLabel($notification->created_at),
-            'data' => $notification->data,
+            'payload' => $notification->data,
         ];
     }
 }
