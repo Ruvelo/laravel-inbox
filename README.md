@@ -335,6 +335,10 @@ Notification::factory()->to($user)->read()->ofType(InvoicePaid::class)
     ->message(InboxMessage::make('Invoice paid', url: '/invoices/1'))->create();
 ```
 
+## Using an AI coding agent?
+
+The package ships [Laravel Boost](https://laravel.com/docs/boost) guidelines in `resources/boost/guidelines/core.blade.php`. With Boost installed (`composer require laravel/boost --dev`), run `php artisan boost:install` and pick `ruvelo/laravel-inbox` from the third-party packages (or `php artisan boost:update --discover` if Boost is already set up). Your agent then knows how to put the bell in your layout, make notifications show nicely, respect preferences, and use the JSON API, and what not to do.
+
 ## Contributing
 
 Pull requests are welcome. Clone, `composer install`, then `composer check` runs code style (Pint), static analysis (PHPStan level 8) and the tests, exactly as CI does. See [CONTRIBUTING.md](CONTRIBUTING.md) and the [changelog](CHANGELOG.md).
