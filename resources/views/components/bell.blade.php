@@ -26,7 +26,7 @@
     .inbox-bell-item.is-unread { background: color-mix(in srgb, var(--inbox-accent-soft) 55%, transparent); }
     .inbox-bell-item.is-unread:hover { background: var(--inbox-accent-soft); }
     .inbox-bell .inbox-avatar { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 999px; background: var(--inbox-accent-soft); color: var(--inbox-accent-ink); font: 600 .7rem/1 var(--inbox-sans); flex: none; }
-    .inbox-bell .inbox-avatar--icon { background: var(--inbox-muted); font-size: 1rem; }
+    .inbox-bell .inbox-avatar--icon { background: var(--inbox-muted); color: var(--inbox-text-2); font-size: .95rem; }
     .inbox-bell-text { display: grid; gap: .1rem; min-width: 0; }
     .inbox-bell-title { font-size: .875rem; line-height: 1.35; font-weight: 500; color: var(--inbox-text-2); overflow-wrap: anywhere; }
     .inbox-bell-item.is-unread .inbox-bell-title { color: var(--inbox-ink); font-weight: 600; }

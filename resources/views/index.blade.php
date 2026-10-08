@@ -67,7 +67,7 @@
                 <ul class="inbox-list">
                     @foreach ($items as $notification)
                         @php($message = $notification->message())
-                        <li @class(['inbox-item', 'is-unread' => $notification->isUnread()])>
+                        <li @class(['inbox-item', 'is-unread' => $notification->isUnread()]) data-inbox-type="{{ $notification->type }}">
                             @include('inbox::partials.avatar', ['message' => $message])
                             <div class="inbox-body">
                                 <a class="inbox-title" href="{{ route('inbox.open', $notification->id) }}">

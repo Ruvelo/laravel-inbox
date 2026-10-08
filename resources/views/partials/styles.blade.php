@@ -49,7 +49,7 @@
     .inbox-item.is-unread:hover { background: var(--inbox-accent-soft); }
     .inbox-item.is-unread::before { content: ""; position: absolute; left: -.35rem; top: 1.45rem; width: .45rem; height: .45rem; border-radius: 50%; background: var(--inbox-accent); }
     .inbox-page .inbox-avatar { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 999px; background: var(--inbox-accent-soft); color: var(--inbox-accent-ink); font-size: .8rem; font-weight: 600; }
-    .inbox-page .inbox-avatar--icon { background: var(--inbox-muted); font-size: 1.15rem; }
+    .inbox-page .inbox-avatar--icon { background: var(--inbox-muted); color: var(--inbox-text-2); font-size: 1.05rem; }
     .inbox-item.is-unread .inbox-avatar--icon { background: var(--inbox-bg); }
     .inbox-body { min-width: 0; }
     .inbox-page .inbox-title { display: block; font-weight: 500; color: var(--inbox-text-2); line-height: 1.4; overflow-wrap: anywhere; }
