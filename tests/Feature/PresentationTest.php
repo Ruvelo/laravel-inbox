@@ -129,12 +129,18 @@ class PresentationTest extends TestCase
 
     public function test_grouping_by_day_in_the_apps_timezone(): void
     {
+        // Like an app booted with this timezone: PHP's default zone matches
+        // app.timezone, and timestamps are stored in it. Switching only the
+        // config at runtime reads stored dates differently across Laravel
+        // 13.x releases, so set both.
+        $previous = date_default_timezone_get();
+        date_default_timezone_set('Pacific/Auckland');
         config(['app.timezone' => 'Pacific/Auckland']);
         Carbon::setTestNow(Carbon::parse('2026-10-08 12:00', 'Pacific/Auckland'));
         $maya = $this->user();
 
         foreach (['2026-10-08 09:00', '2026-10-08 00:30', '2026-10-07 23:30', '2026-10-01 10:00', '2025-12-24 10:00'] as $at) {
-            Notification::factory()->to($maya)->sentAt(Carbon::parse($at, 'Pacific/Auckland')->utc())->create();
+            Notification::factory()->to($maya)->sentAt(Carbon::parse($at, 'Pacific/Auckland'))->create();
         }
 
         $groups = Inbox::groupByDay(Inbox::latest($maya, 10));
@@ -145,5 +151,6 @@ class PresentationTest extends TestCase
         config(['inbox.timezone' => 'UTC']);
         $this->assertSame('Yesterday', Inbox::dayLabel(Carbon::parse('2026-10-07 10:00', 'Pacific/Auckland')));
         Carbon::setTestNow();
+        date_default_timezone_set($previous);
     }
 }
